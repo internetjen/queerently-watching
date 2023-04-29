@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       {/* <LoginModal /> */}
-      <RegisterModal />
+      {/* <RegisterModal /> */}
       <Layout>
         <Component {...pageProps} />
       </Layout>
