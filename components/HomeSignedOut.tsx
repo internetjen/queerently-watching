@@ -18,7 +18,7 @@ const HomeSignedOut = () => {
                 queer representation in film and television.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
-                <a className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <a className="rounded-md bg-gray-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   Get started <span aria-hidden="true">&rarr;</span>
                 </a>
 
