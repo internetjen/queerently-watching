@@ -1,17 +1,17 @@
-import LoginModal from "component/components/modals/LoginModal";
 import Layout from "../components/Layout";
 import "component/styles/globals.css";
 import type { AppProps } from "next/app";
-import RegisterModal from "component/components/modals/RegisterModal";
+import { SessionProvider } from "next-auth/react"
+// import RegisterModal from "component/components/modals/RegisterModal";
+// import LoginModal from "component/components/modals/LoginModal";
 
-export default function App({ Component, pageProps }: AppProps) {
+
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <>
-      {/* <LoginModal /> */}
-      {/* <RegisterModal /> */}
+    <SessionProvider session={session}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </SessionProvider>
   );
 }
