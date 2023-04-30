@@ -19,12 +19,57 @@ function handleSignInGithub() {
 }
 
 const LoginAccountCreate = () => {
+  const stats = [
+    { id: 1, name: "Find LGBTQ+ media content", value: "Discover" },
+    { id: 2, name: "Share favorite queer stories safely", value: "Share" },
+    {
+      id: 3,
+      name: "Have in discussions about representation",
+      value: "Engage",
+    },
+    {
+      id: 4,
+      name: "Connecting with passionate LGBTQ+ community",
+      value: "Celebrate",
+    },
+  ];
+
   return (
     <>
       <div className="flex min-h-full flex-1">
-        <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div className="flex flex-1 flex-col justify-center py-12 sm:px-6 lg:flex-none lg:px-5 xl:px-5">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div className="mt-10">
+              <div className="bg-white py-6 sm:py-10">
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                  <div className="mx-auto max-w-2xl lg:max-w-none">
+                    <div className="text-center">
+                      <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        Get started sharing your ideas
+                      </h2>
+                      <p className="mt-4 text-md leading-8 text-gray-600">
+                        Lorem ipsum dolor sit amet consect adipisicing possimus.
+                      </p>
+                    </div>
+                    <dl className="mt-8 grid grid-cols-2 gap-1 overflow-hidden rounded-2xl text-center  xl:grid-cols-1 lg:grid-cols-1">
+                      {stats.map((stat) => (
+                        <div
+                          key={stat.id}
+                          className="flex flex-col bg-gray-400/5 p-8"
+                        >
+                          <dt className="text-sm leading-6 text-gray-600">
+                            {stat.name}
+                          </dt>
+                          <dd className="order-first text-xl font-semibold tracking-tight text-gray-900">
+                            {stat.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                </div>
+              </div>
+
               <div className="relative">
                 <div
                   className="absolute inset-0 flex items-center"
@@ -33,11 +78,11 @@ const LoginAccountCreate = () => {
                   <div className="w-full border-t border-gray-200" />
                 </div>
                 <div className="relative flex justify-center text-sm font-medium leading-6">
-                  <span className="bg-white px-6 text-gray-900">Sign in</span>
+                  <span className="bg-white px-6 text-gray-900">Sign in with</span>
                 </div>
               </div>
 
-              <div className="mt-6 grid flex-col gap-4">
+              <div className="mt-6 flex justify-center gap-4">
                 <button
                   onClick={handleSignInGoogle()}
                   className="flex w-full items-center justify-center gap-3 rounded-md bg-[#3cba54] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
@@ -81,7 +126,6 @@ const LoginAccountCreate = () => {
                   onClick={handleSignInFacebook()}
                   className="flex w-full items-center justify-center gap-3 rounded-md bg-[#4267B2] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
                 >
-
                   <svg
                     className="h-5 w-5"
                     aria-hidden="true"
@@ -98,12 +142,39 @@ const LoginAccountCreate = () => {
             </div>
           </div>
         </div>
-        <div className="relative hidden w-0 flex-1 lg:block">
-          <img
-            className="absolute inset-0 h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
-            alt=""
-          />
+        <div className="relative hidden w-0 flex-1 lg:block max-w-screen-xl mx-auto">
+          <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+            <div className="ml-auto mt-0 w-96 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 xl:order-none xl:pt-80">
+              <div className="relative">
+                <img
+                  src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2022%2F07%2F26%2FChante-Adams-Abbi-Jacobson-a-league-of-their-own-072622-1.jpg"
+                  alt=""
+                  className="aspect-[8/6] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+              </div>
+            </div>
+            <div className="-ml-24 w-72 mt-96 flex-none space-y-8 sm:pt-52 lg:pt-36">
+              <div className="relative">
+                <img
+                  src="https://64.media.tumblr.com/605fb8c257831cfcbd062398b73f90c1/2a77fc4c481f0914-7d/s540x810/40e1023c1dbcc0185d0effb0b02eb17b5e8b791b.gifv"
+                  alt=""
+                  className="aspect-[5/6] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+              </div>
+            </div>
+            <div className="-ml-32 w-72 mt-52 flex-none space-y-8 pt-32 sm:pt-0">
+              <div className="relative">
+                <img
+                  src="https://legendary-digital-network-assets.s3.amazonaws.com/wp-content/uploads/2022/06/27111259/TheUmbrellaAcademy_Season3_Episode2_00_39_44_00R-1-1.jpg"
+                  alt=""
+                  className="aspect-[5/6] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
