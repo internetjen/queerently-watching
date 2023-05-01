@@ -1,5 +1,7 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import Logo from "./Logo";
 import {
   Bars3Icon,
@@ -7,7 +9,8 @@ import {
   BellAlertIcon,
   UserCircleIcon,
   XMarkIcon,
-  ArrowLeftOnRectangleIcon
+  ArrowLeftOnRectangleIcon,
+  TvIcon,
 } from "@heroicons/react/24/outline";
 
 interface LayoutProps {
@@ -16,10 +19,19 @@ interface LayoutProps {
 
 const navigation = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
-  { name: "Notifications", href: "/notifications", icon: BellAlertIcon, current: false },
+  {
+    name: "Notifications",
+    href: "/notifications",
+    icon: BellAlertIcon,
+    current: false,
+  },
   { name: "Profile", href: "/users/123", icon: UserCircleIcon, current: false },
-  { name: "Logout", href: "/logout", icon: ArrowLeftOnRectangleIcon, current: false },
-
+  {
+    name: "Titles",
+    href: "/All-Titles",
+    icon: TvIcon,
+    current: false,
+  },
 ];
 
 function classNames(...classes: string[]) {
@@ -28,6 +40,7 @@ function classNames(...classes: string[]) {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <>
@@ -110,6 +123,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             </a>
                           </li>
                         ))}
+                        {/* Sign out button */}
+                        {session && (
+                          <li className="flex items-center group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                            <button onClick={() => signOut()} type="button">
+                              <div className="flex items-center gap-x-2">
+                                <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
+                                <span>Logout</span>
+                              </div>
+                            </button>
+                          </li>
+                        )}
                       </ul>
                     </nav>
                   </div>
@@ -145,6 +169,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </a>
                 </li>
               ))}
+              {/* Sign out button} */}
+
+              {session && (
+                <li className="flex items-center group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                  <button onClick={() => signOut()} type="button">
+                    <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
+                  </button>
+                </li>
+              )}
             </ul>
           </nav>
         </div>
@@ -172,11 +205,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
 
         <main className="lg:pl-20">
-            <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
-              
-              {children}
-
-         </div>
+          <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">{children}</div>
         </main>
       </div>
     </>
