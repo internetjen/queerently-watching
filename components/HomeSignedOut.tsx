@@ -18,19 +18,18 @@ const HomeSignedOut = () => {
                 queer representation in film and television.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
-                <button className="rounded-md bg-gray-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-pink-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <button className="rounded-md bg-gray-800 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-pink-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
                   <Link href="/Get-Started">Get started</Link>
                 </button>
 
                 <Link
                   href="/Media-Titles/All"
-                  className="text-sm font-semibold leading-6 text-gray-900"
+                  className="text-xs font-semibold leading-6 text-gray-900"
                 >
                   See what we're watching <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
-
             
             <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
               <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
