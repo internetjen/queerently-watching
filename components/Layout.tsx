@@ -28,7 +28,7 @@ const navigation = [
   { name: "Profile", href: "/users/123", icon: UserCircleIcon, current: false },
   {
     name: "Titles",
-    href: "/All-Titles",
+    href: "/Media/All-Titles",
     icon: TvIcon,
     current: false,
   },

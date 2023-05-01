@@ -49,7 +49,7 @@ const AllTitles = () => {
   return (
     
       <div className="bg-white">
-        <div className="mt-8 mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <div className="relative flex items-center justify-center flex-1 lg:mx-6">
             <form
               className="relative w-full max-w-md"
@@ -82,14 +82,14 @@ const AllTitles = () => {
               items.map((item: Item) => (
                 <Link
                   key={item.id}
-                  href={`/Media-Titles/Item/${item.id}?media_type=${
+                  href={`/Media/Item/${item.id}?media_type=${
                     item.title ? "movie" : "tv"
                   }`}
                   className="group"
                 >
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-sm bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                     {item.poster_path ? (
-                      <img
+                      <img 
                         src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                         alt={item.title ? item.title : item.name}
                         className="h-full w-full object-cover object-center group-hover:opacity-75"
@@ -98,7 +98,7 @@ const AllTitles = () => {
                       <img
                         height="700px"
                         width="500px"
-                        src="../ImageUnavailable.svg"
+                        src="/ImageUnavailable.svg"
                         alt={item.title ? item.title : item.name}
                         className="h-full w-full object-cover object-center group-hover:opacity-75"
                       />
