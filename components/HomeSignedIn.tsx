@@ -10,7 +10,6 @@ const HomeSignedIn = () => {
   return (
     <>
     <div>You are signed in</div>
-    <button onClick={handleSignOut()}>Sign out</button>
     </>
   )
 }
