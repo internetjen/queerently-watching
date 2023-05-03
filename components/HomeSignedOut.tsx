@@ -23,7 +23,7 @@ const HomeSignedOut = () => {
                 </button>
 
                 <Link
-                  href="/Media-Titles/All"
+                  href="/Media/All-Titles"
                   className="text-xs font-semibold leading-6 text-gray-900"
                 >
                   See what we're watching <span aria-hidden="true">→</span>

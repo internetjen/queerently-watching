@@ -1,15 +1,11 @@
-import { signOut } from "next-auth/react"
-
-function handleSignOut() {
-  return () => {
-    signOut({ redirect: false });
-  };
-}
+import { useSession } from "next-auth/react";
 
 const HomeSignedIn = () => {
+  const { data: session } = useSession();
+
   return (
     <>
-    <div>You are signed in</div>
+    <div>Welcome, {session?.user?.name}! </div>
     </>
   )
 }

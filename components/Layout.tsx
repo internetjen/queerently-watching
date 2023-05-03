@@ -194,14 +194,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
             Dashboard
           </div>
-          <a href="#">
-            <span className="sr-only">Your profile</span>
-            <img
-              className="h-8 w-8 rounded-full bg-gray-50"
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt=""
-            />
-          </a>
+
+          {session && (
+            <a href="#">
+              <span className="sr-only">Your profile</span>
+
+              <img
+                className="h-8 w-8 rounded-full bg-gray-50"
+                src={session?.user?.image!}
+                alt="profile-pic"
+                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                  e.currentTarget.src =
+                    "https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
+                }}
+              />
+            </a>
+          )}
         </div>
 
         <main className="lg:pl-20">
