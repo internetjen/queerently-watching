@@ -1,0 +1,1 @@
+// Use fetch() or a similar method to retrieve the user's favorites list from the API route. Use getSession() to include the jwt property from the session object in the request headers for authentication.
