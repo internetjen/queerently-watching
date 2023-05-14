@@ -24,13 +24,15 @@ interface Genre {
   name: string;
 }
 
-const ItemPage = () => {
+const DiscussionPage = () => {
   const router = useRouter();
   const { id, media_type } = router.query;
   const [item, setItem] = useState<Item | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isFavorite, setIsFavorite] = useState(false);
   const { data: session } = useSession();
+
+  console.log(id, media_type);
 
   useEffect(() => {
     if (!id || !media_type) return;
@@ -61,18 +63,20 @@ const ItemPage = () => {
     fetchData();
   }, [id, media_type, session]);
 
+  console.log(item);
+
   return (
     <div className="flex flex-col items-center justify-center h-full">
       <div className="mt-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-center py-4">
+          <h2 className="text-transform: uppercase mt-4 text-3xl font-bold text-custom-c18c5d">
+            Discussion
+          </h2>
+        </div>
         <div className="sm:flex">
           {item?.poster_path && (
             <div className="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
               <div className="flex items-center flex-col sm:flex-row">
-                <img
-                  className="h-full w-full object-cover border border-gray-300 bg-white text-gray-300 sm:w-64 block sm:hidden"
-                  src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
-                  alt={item.title || item.name}
-                />
                 <img
                   className="h-full w-full object-cover border border-gray-300 bg-white text-gray-300 sm:w-64 hidden sm:flex"
                   src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
@@ -107,21 +111,6 @@ const ItemPage = () => {
                   )}
                 </div>
               </div>
-
-              <Link
-                href={`/discussion/${id}?media_type=${
-                  item?.title ? "movie" : "tv"
-                }`}
-                passHref
-              >
-                <button className="mt-4 text-blue-500 hover:underline">
-                  Join the discussion
-                </button>
-              </Link>
-
-              {/* <button onClick={() => handleFavoriteToggle(item?.id, isFavorite)}>
-                  {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
-                </button> */}
             </div>
           )}
         </div>
@@ -130,4 +119,4 @@ const ItemPage = () => {
   );
 };
 
-export default ItemPage;
+export default DiscussionPage;
