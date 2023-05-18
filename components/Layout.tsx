@@ -207,7 +207,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <span className="sr-only">Your profile</span>
               <img
                 className="h-8 w-8 rounded-full bg-gray-50"
-                src={session?.user?.image!}
+                src={session?.user.user_metadata.avatar_url}
                 alt="profile-pic"
                 onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                   e.currentTarget.src =
