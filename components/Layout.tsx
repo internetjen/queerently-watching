@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "@supabase/auth-helpers-react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 import Logo from "./Logo";
 import {
@@ -16,6 +17,7 @@ import {
 interface LayoutProps {
   children: React.ReactNode;
 }
+
 
 const navigation = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
@@ -40,7 +42,12 @@ function classNames(...classes: string[]) {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { data: session } = useSession();
+  const supabase = useSupabaseClient();
+  const session = useSession();
+
+  async function signout() {
+    const { error } = await supabase.auth.signOut()
+  }
 
   return (
     <>
@@ -126,7 +133,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         {/* Sign out button */}
                         {session && (
                           <li className="flex items-center group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                            <button onClick={() => signOut()} type="button">
+                            <button onClick={() => signout()} type="button">
                               <div className="flex items-center gap-x-2">
                                 <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
                                 <span>Logout</span>
@@ -173,7 +180,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
               {session && (
                 <li className="flex items-center group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                  <button onClick={() => signOut()} type="button">
+                  <button onClick={() => signout()} type="button">
                     <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
                   </button>
                 </li>

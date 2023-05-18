@@ -1,11 +1,11 @@
-import { useSession } from "next-auth/react";
+import { useSession } from "@supabase/auth-helpers-react";
 
 const HomeSignedIn = () => {
-  const { data: session } = useSession();
+  const session  = useSession();
 
   return (
     <>
-    <div>Welcome, {session?.user?.name}! </div>
+    <div>Welcome! </div>
     </>
   )
 }

@@ -1,24 +1,14 @@
-import { signIn } from "next-auth/react";
-
-function handleSignInGoogle() {
-  return () => {
-    signIn("google");
-  };
-}
-
-function handleSignInFacebook() {
-  return () => {
-    signIn("facebook");
-  };
-}
-
-function handleSignInGithub() {
-  return () => {
-    signIn("github");
-  };
-}
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const LoginAccountCreate = () => {
+  const supabase = useSupabaseClient();
+
+  async function loginWithGoogle() {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google" 
+    });
+  }
+
   const stats = [
     { id: 1, 
       name: "Find LGBTQ+ media content", 
@@ -66,7 +56,7 @@ const LoginAccountCreate = () => {
               </div>
 
               <button
-                onClick={handleSignInGoogle()}
+                onClick={loginWithGoogle}
                 className="flex w-full items-center justify-center gap-3 rounded-md bg-[#3cba54] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
               >
                 <svg
@@ -81,7 +71,7 @@ const LoginAccountCreate = () => {
                 <span className="text-sm font-semibold leading-6">Google</span>
               </button>
 
-              <button
+              {/* <button
                 onClick={handleSignInGithub()}
                 className="flex w-full items-center justify-center gap-3 rounded-md bg-[#24292F] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
               >
@@ -98,9 +88,9 @@ const LoginAccountCreate = () => {
                   />
                 </svg>
                 <span className="text-sm font-semibold leading-6">GitHub</span>
-              </button>
+              </button> */}
 
-              <button
+              {/* <button
                 onClick={handleSignInFacebook()}
                 className="flex w-full items-center justify-center gap-3 rounded-md bg-[#4267B2] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
               >
@@ -115,7 +105,7 @@ const LoginAccountCreate = () => {
                 <span className="text-sm font-semibold leading-6">
                   Facebook
                 </span>
-              </button>
+              </button> */}
             </div>
 
             <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">

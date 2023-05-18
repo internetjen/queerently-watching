@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
+import { useSession } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 
 interface Item {
@@ -30,7 +30,7 @@ const ItemPage = () => {
   const [item, setItem] = useState<Item | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isFavorite, setIsFavorite] = useState(false);
-  const { data: session } = useSession();
+  const session  = useSession();
 
   useEffect(() => {
     if (!id || !media_type) return;

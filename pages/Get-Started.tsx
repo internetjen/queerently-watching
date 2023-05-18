@@ -1,9 +1,9 @@
-import { useSession } from "next-auth/react";
+import { useSession } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import LoginAccountCreate from 'component/components/LoginAccountCreate'
 
 const GetStarted = () => {
-  const { data: session } = useSession();
+  const session  = useSession();
   const router = useRouter();
 
   if (session) {

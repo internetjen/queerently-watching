@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Item {
   id: number;
@@ -89,15 +90,17 @@ const AllTitles = () => {
                 >
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-sm bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                     {item.poster_path ? (
-                      <img 
+                      <Image 
+                        height={700}
+                        width={500}
                         src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                         alt={item.title ? item.title : item.name}
                         className="h-full w-full object-cover object-center group-hover:opacity-75"
                       />
                     ) : (
-                      <img
-                        height="700px"
-                        width="500px"
+                      <Image
+                        height={700}
+                        width={500}
                         src="/ImageUnavailable.svg"
                         alt={item.title ? item.title : item.name}
                         className="h-full w-full object-cover object-center group-hover:opacity-75"
