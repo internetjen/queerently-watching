@@ -3,10 +3,22 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 const LoginAccountCreate = () => {
   const supabase = useSupabaseClient();
 
-  async function loginWithGoogle() {
+  async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google" 
     });
+  }
+
+  async function signInWithGitHub() {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+    })
+  }
+
+  async function signInWithDiscord() {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'discord',
+    })
   }
 
   const stats = [
@@ -56,8 +68,8 @@ const LoginAccountCreate = () => {
               </div>
 
               <button
-                onClick={loginWithGoogle}
-                className="flex w-full items-center justify-center gap-3 rounded-md bg-[#3cba54] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
+                onClick={signInWithGoogle}
+                className="flex w-full items-center justify-center gap-3 rounded-md bg-[#4285F4] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
               >
                 <svg
                   className="h-5 w-5"
@@ -71,8 +83,8 @@ const LoginAccountCreate = () => {
                 <span className="text-sm font-semibold leading-6">Google</span>
               </button>
 
-              {/* <button
-                onClick={handleSignInGithub()}
+              <button
+                onClick={signInWithGitHub}
                 className="flex w-full items-center justify-center gap-3 rounded-md bg-[#24292F] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
               >
                 <svg
@@ -88,24 +100,26 @@ const LoginAccountCreate = () => {
                   />
                 </svg>
                 <span className="text-sm font-semibold leading-6">GitHub</span>
-              </button> */}
+              </button>
 
-              {/* <button
-                onClick={handleSignInFacebook()}
-                className="flex w-full items-center justify-center gap-3 rounded-md bg-[#4267B2] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
+              <button
+                onClick={signInWithDiscord}
+                className="flex w-full items-center justify-center gap-3 rounded-md bg-[#7289DA] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]"
               >
-                <svg
-                  className="h-5 w-5"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 512 512"
+              <svg 
+                className="h-5 w-5"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 24 24" 
                 >
-                  <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
+                <path d="M18.942 5.556a16.299 16.299 0 0 0-4.126-1.297c-.178.321-.385.754-.529 1.097a15.175 15.175 0 0 0-4.573 0 11.583 11.583 0 0 0-.535-1.097 16.274 16.274 0 0 0-4.129 1.3c-2.611 3.946-3.319 7.794-2.965 11.587a16.494 16.494 0 0 0 5.061 2.593 12.65 12.65 0 0 0 1.084-1.785 10.689 10.689 0 0 1-1.707-.831c.143-.106.283-.217.418-.331 3.291 1.539 6.866 1.539 10.118 0 .137.114.277.225.418.331-.541.326-1.114.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595c.415-4.396-.709-8.209-2.973-11.589zM8.678 14.813c-.988 0-1.798-.922-1.798-2.045s.793-2.047 1.798-2.047 1.815.922 1.798 2.047c.001 1.123-.793 2.045-1.798 2.045zm6.644 0c-.988 0-1.798-.922-1.798-2.045s.793-2.047 1.798-2.047 1.815.922 1.798 2.047c0 1.123-.793 2.045-1.798 2.045z" />
                 </svg>
+    
                 <span className="text-sm font-semibold leading-6">
-                  Facebook
+                  Discord
                 </span>
-              </button> */}
+                </button>
+
             </div>
 
             <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
