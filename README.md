@@ -1,38 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Queerently Watching
+
+Queerently Watching is a community-driven platform for LGBTQ+ individuals and allies to share and discover media that tells authentic queer stories. Our mission is to create a safe and inclusive space for users to connect, discuss, and celebrate queer representation in film and television.
+
+## Features
+
+- **Discover Queer Media**: Browse a diverse collection of movies and TV shows that feature authentic queer representation.
+- **Community Recommendations**: Get personalized recommendations from the community based on your interests and preferences.
+- **Create Watchlists**: Curate your own watchlists to keep track of the queer media you want to explore.
+- **Join Discussions**: Engage in meaningful conversations with fellow users about your favorite movies and TV shows.
+- **Rating and Reviews**: Share your thoughts and opinions by rating and reviewing the media you've watched.
+- **Connect with Like-minded Users**: Follow other users, make friends, and build a supportive network within the Queerently Watching community.
+
+## Technologies Used
+
+- Front-end: React.js, Redux, HTML, CSS
+- Back-end: Node.js, Express.js, MongoDB
+- Authentication: JSON Web Tokens (JWT)
+- External APIs: [Movie/TV Show Data API], [User Recommendations API]
 
 ## Getting Started
 
-First, run the development server:
+To get started with Queerently Watching, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. Clone the repository: `git clone https://github.com/your-username/queerently-watching.git`
+2. Navigate to the project directory: `cd queerently-watching`
+3. Install the dependencies: `npm install`
+4. Set up the environment variables:
+   - Create a `.env` file in the root directory.
+   - Add the necessary environment variables (e.g., API keys, database connection string, etc.).
+5. Start the development server: `npm start`
+6. Open your browser and visit: `http://localhost:3000`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+We welcome contributions from the community to make Queerently Watching even better. To contribute, please follow these steps:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Fork the repository.
+2. Create your branch: `git checkout -b my-feature`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin my-feature`
+5. Create a pull request, describing your changes in detail.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Please ensure that your contributions adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contribution Guidelines](CONTRIBUTING.md).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## License
 
-## Learn More
+The project is licensed under the [MIT License](LICENSE).
 
-To learn more about Next.js, take a look at the following resources:
+## Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you have any questions or suggestions, please feel free to reach out to us at [email@example.com].
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+We're excited to have you join the Queerently Watching community! Let's celebrate queer representation together. 🌈✨
