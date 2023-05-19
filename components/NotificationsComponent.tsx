@@ -1,3 +1,8 @@
+import { useSession } from "@supabase/auth-helpers-react"
+import Router from 'next/router';
+import { useEffect } from "react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+
 const activityItems = [
     {
       user: {
@@ -60,9 +65,23 @@ const activityItems = [
       dateTime: '2023-01-18T12:34',
     },
   ]
+
+
+ const NotificationsComponent = () => {
+  const  session  = useSession();
+  const supabase = useSupabaseClient();
+//   const { data, error } = await supabase.auth.getUser()
+
   
-  export default function Notifications() {
-    return (
+    // useEffect(() => {
+    //     console.log(data);
+    //     if (!data) {
+    //     Router.push(`/`);
+    //     }
+    // }, [data]);
+
+  return (
+    <>
       <div className="flex justify-center">
         <ul role="list" className="divide-y divide-gray-100">
           {activityItems.map((item) => (
@@ -84,6 +103,8 @@ const activityItems = [
           ))}
         </ul>
       </div>
-    )
-  }
-  
+    </>
+  )
+}
+
+export default NotificationsComponent;
