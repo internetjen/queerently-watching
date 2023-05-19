@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-interface Item {
+interface Movie {
   id: number;
   title: string;
   name: string;
@@ -11,7 +11,7 @@ interface Item {
 }
 
 const MyTitles = () => {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Movie[]>([]);
 
   useEffect(() => {
     async function fetchItems() {
@@ -39,10 +39,10 @@ const MyTitles = () => {
           </div>
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {Array.isArray(items) && items.length > 0 ? (
-              items.map((item: Item) => (
+              items.map((item: Movie) => (
                 <Link
                   key={item.id}
-                  href={`/Media-Titles/Item/${item.id}?media_type=${
+                  href={`/media-titles/${item.id}?media_type=${
                     item.title ? "movie" : "tv"
                   }`}
                   className="group"

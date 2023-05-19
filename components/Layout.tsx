@@ -13,28 +13,13 @@ import {
   ArrowLeftOnRectangleIcon,
   TvIcon,
 } from "@heroicons/react/24/outline";
+import { useRouter } from "next/router";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 
-const navigation = [
-  { name: "Home", href: "/", icon: HomeIcon, current: true },
-  {
-    name: "Notifications",
-    href: "/notifications",
-    icon: BellAlertIcon,
-    current: false,
-  },
-  { name: "Profile", href: "/users/123", icon: UserCircleIcon, current: false },
-  {
-    name: "Titles",
-    href: "/Media/All-Titles",
-    icon: TvIcon,
-    current: false,
-  },
-];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -44,9 +29,38 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const supabase = useSupabaseClient();
   const session = useSession();
+  const router = useRouter();
+
+  const navigation = [
+    { 
+      name: "Home", 
+      href: "/", 
+      icon: HomeIcon
+    },
+    {
+      name: "Notifications",
+      href: "/notifications",
+      icon: BellAlertIcon
+    },
+    { 
+      name: "Profile", 
+      href: `/profile/${session?.user.id}`, 
+      icon: UserCircleIcon
+    },
+    {
+      name: "Titles",
+      href: "/media/all-titles",
+      icon: TvIcon
+    },
+  ];
+
 
   async function signout() {
     const { error } = await supabase.auth.signOut()
+  }
+
+  function isActiveRoute(href: string) {
+    return href === router.asPath ? true : false
   }
 
   return (
@@ -116,7 +130,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             <a
                               href={item.href}
                               className={classNames(
-                                item.current
+                                isActiveRoute(item.href)
                                   ? "bg-gray-200 text-gray-900"
                                   : "text-gray-600 hover:text-gray-900 hover:bg-gray-100",
                                 "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -162,7 +176,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <a
                     href={item.href}
                     className={classNames(
-                      item.current
+                      isActiveRoute(item.href)
                         ? "bg-gray-200 text-gray-900"
                         : "text-gray-600 hover:text-gray-900 hover:bg-gray-100",
                       "group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold"

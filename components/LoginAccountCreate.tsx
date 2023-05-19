@@ -7,6 +7,7 @@ const LoginAccountCreate = () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google" 
     });
+    console.log('DATA', data)
   }
 
   async function signInWithGitHub() {
