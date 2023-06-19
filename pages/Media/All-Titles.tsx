@@ -83,7 +83,7 @@ const AllTitles = () => {
               items.map((item: Item) => (
                 <Link
                   key={item.id}
-                  href={`/Media/Item/${item.id}?media_type=${
+                  href={`/media/${item.id}?media_type=${
                     item.title ? "movie" : "tv"
                   }`}
                   className="group"

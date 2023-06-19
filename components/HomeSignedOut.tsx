@@ -19,11 +19,11 @@ const HomeSignedOut = () => {
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <button className="rounded-md bg-gray-800 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-pink-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
-                  <Link href="/Get-Started">Get started</Link>
+                  <Link href="/get-started">Get started</Link>
                 </button>
 
                 <Link
-                  href="/Media/All-Titles"
+                  href="/media/all-titles"
                   className="text-xs font-semibold leading-6 text-gray-900"
                 >
                   See what we're watching <span aria-hidden="true">→</span>
