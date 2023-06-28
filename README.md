@@ -13,10 +13,12 @@ Queerently Watching is a community-driven platform for LGBTQ+ individuals and al
 
 ## Technologies Used
 
-- Front-end: React.js, Redux, HTML, CSS
-- Back-end: Node.js, Express.js, MongoDB
-- Authentication: JSON Web Tokens (JWT)
-- External APIs: [Movie/TV Show Data API], [User Recommendations API]
+- Languages: Javascript (Typescript)
+- Front-end: React.js, Tailwind CSS, HTML
+- Back-end: Next.js
+- Databases: Supabase
+- Authentication: Supabase Auth
+- External APIs: TheMovieDB.org
 
 ## Getting Started
 
@@ -41,7 +43,6 @@ We welcome contributions from the community to make Queerently Watching even bet
 4. Push to the branch: `git push origin my-feature`
 5. Create a pull request, describing your changes in detail.
 
-Please ensure that your contributions adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contribution Guidelines](CONTRIBUTING.md).
 
 ## License
 
@@ -49,6 +50,6 @@ The project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or suggestions, please feel free to reach out to us at [email@example.com].
+If you have any questions or suggestions, please feel free to reach out to us at [queerentlwatching@gmail.com].
 
 We're excited to have you join the Queerently Watching community! Let's celebrate queer representation together. 🌈✨

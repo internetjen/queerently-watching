@@ -1,12 +1,12 @@
 import { useSession } from "@supabase/auth-helpers-react";
 
-const Profile = () => {
+const Dashboard = () => {
   const session  = useSession();
 
   if (session) {
   return (
     <>
-    <div>Profile! </div>
+    <div>Welcome! </div>
     </>
   )
   }
@@ -19,4 +19,4 @@ const Profile = () => {
 }
 
 
-export default Profile
+export default Dashboard
