@@ -14,12 +14,11 @@ import {
   TvIcon,
 } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
+import Footer from "./footer";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
-
-
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -32,35 +31,34 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
 
   const navigation = [
-    { 
-      name: "Home", 
-      href: "/", 
-      icon: HomeIcon
+    {
+      name: "Home",
+      href: "/",
+      icon: HomeIcon,
     },
     {
       name: "Notifications",
       href: "/notifications",
-      icon: BellAlertIcon
+      icon: BellAlertIcon,
     },
-    { 
-      name: "Profile", 
-      href: `/profile/${session?.user.id}`, 
-      icon: UserCircleIcon
+    {
+      name: "Profile",
+      href: `/profile/${session?.user.id}`,
+      icon: UserCircleIcon,
     },
     {
       name: "Titles",
       href: "/media/all-titles",
-      icon: TvIcon
+      icon: TvIcon,
     },
   ];
 
-
   async function signout() {
-    const { error } = await supabase.auth.signOut()
+    const { error } = await supabase.auth.signOut();
   }
 
   function isActiveRoute(href: string) {
-    return href === router.asPath ? true : false
+    return href === router.asPath ? true : false;
   }
 
   return (
@@ -212,9 +210,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
-          <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
-            
-          </div>
+          <div className="flex-1 text-sm font-semibold leading-6 text-gray-900"></div>
 
           {session && (
             <a href="#">
@@ -235,6 +231,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <main className="lg:pl-20">
           <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">{children}</div>
         </main>
+        <Footer />
       </div>
     </>
   );

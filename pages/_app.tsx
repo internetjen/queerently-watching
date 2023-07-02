@@ -4,6 +4,7 @@ import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import Layout from "../components/Layout";
 import "component/styles/globals.css";
+import Footer from 'component/components/footer';
 
 // from what I understand we need to do some more stuff here in order to actually handle the authenticated state
 // I think like this: https://github.com/dabit3/supabase-nextjs-auth/blob/main/pages/_app.js
@@ -28,5 +29,7 @@ export default function App({ Component, pageProps }: AppProps<{
       <Component {...pageProps} />
       </Layout>
     </SessionContextProvider>
+    
+
   )
 }
