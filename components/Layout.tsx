@@ -168,7 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <Logo />
           </div>
           <nav>
-            <ul role="list" className="flex items-center ">
+            <ul role="list" className="flex items-center mx-8">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <a
@@ -189,12 +189,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </a>
                 </li>
               ))}
-              {/* Sign out button} */}
 
+              {/* Sign out button} */}
               {session && (
                 <li className="flex items-center group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                   <button onClick={() => signout()} type="button">
-                    <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
+                    {/* <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" /> */}
+                    Logout
                   </button>
                 </li>
               )}
