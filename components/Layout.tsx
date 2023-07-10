@@ -37,19 +37,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       icon: HomeIcon,
     },
     {
-      name: "Notifications",
-      href: "/notifications",
-      icon: BellAlertIcon,
+      name: "Titles",
+      href: "/media/all-titles",
+      icon: TvIcon,
     },
+    // {
+    //   name: "Notifications",
+    //   href: "/notifications",
+    //   icon: BellAlertIcon,
+    // },
     {
       name: "Profile",
       href: `/profile/${session?.user.id}`,
       icon: UserCircleIcon,
-    },
-    {
-      name: "Titles",
-      href: "/media/all-titles",
-      icon: TvIcon,
     },
   ];
 
@@ -148,7 +148,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             <button onClick={() => signout()} type="button">
                               <div className="flex items-center gap-x-2">
                                 <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
-                                <span>Logout</span>
+                                Logout
                               </div>
                             </button>
                           </li>
@@ -163,12 +163,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-20 lg:overflow-y-auto lg:bg-gray-50 lg:pb-4">
-          <div className="flex h-16 shrink-0 items-center justify-center">
+        <div className="hidden lg:flex lg:justify-between lg:items-center lg:overflow-x-auto">
+          <div className="flex h-16 shrink-0 px-4 items-center justify-center">
             <Logo />
           </div>
-          <nav className="mt-8">
-            <ul role="list" className="flex flex-col items-center space-y-1">
+          <nav>
+            <ul role="list" className="flex items-center ">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <a
@@ -180,11 +180,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                       "group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold"
                     )}
                   >
-                    <item.icon
+                    {/* <item.icon
                       className="h-6 w-6 shrink-0"
                       aria-hidden="true"
-                    />
-                    <span className="sr-only">{item.name}</span>
+                    /> */}
+                    {/* <span className="sr-only">{item.name}</span> */}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -201,7 +202,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
         </div>
 
-        <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-50 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+        <div className="sticky top-0 z-40 flex items-center gap-x-6  px-4 py-4 shadow-sm sm:px-6 lg:hidden">
           <button
             type="button"
             className="-m-2.5 p-2.5 text-gray-900 lg:hidden"
@@ -228,7 +229,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           )}
         </div>
 
-        <main className="lg:pl-20">
+        <main>
           <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">{children}</div>
         </main>
         <Footer />
