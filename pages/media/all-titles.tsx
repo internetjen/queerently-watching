@@ -48,84 +48,85 @@ const AllTitles = () => {
   }, []);
 
   return (
-    
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <div className="relative flex items-center justify-center flex-1 lg:mx-6">
-            <form
-              className="relative w-full max-w-md"
-              onSubmit={handleSearch}
-              method="GET"
-            >
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <MagnifyingGlassIcon
-                  className="h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <input
-                id="search-field"
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-xl placeholder-gray-500 text-gray-900 focus:outline-none focus:placeholder-gray-400 focus:ring-custom-c18c5d focus:border-custom-c18c5d sm:text-sm border-gray-300"
-                type="search"
-                name="search"
-                placeholder="Search for a title"
+    <div className="bg-white">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div className="relative flex items-center justify-center flex-1 lg:mx-6">
+          <form
+            className="relative w-full max-w-md"
+            onSubmit={handleSearch}
+            method="GET"
+          >
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+              <MagnifyingGlassIcon
+                className="h-5 w-5 text-gray-400"
+                aria-hidden="true"
               />
-            </form>
-          </div>
+            </div>
+            <input
+              id="search-field"
+              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-xl placeholder-gray-500 text-gray-900 focus:outline-none focus:placeholder-gray-400 focus:ring-custom-c18c5d focus:border-custom-c18c5d sm:text-sm border-gray-300"
+              type="search"
+              name="search"
+              placeholder="Search for a title"
+            />
+          </form>
+        </div>
 
-          <div className="flex items-center justify-center py-4">
-            <h2 className="text-transform: uppercase mt-4 text-3xl font-bold text-custom-c18c5d">
-              All Titles
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {Array.isArray(items) && items.length > 0 ? (
-              items.map((item: Item) => (
-                <Link
-                  key={item.id}
-                  href={`/media/${item.id}?media_type=${
-                    item.title ? "movie" : "tv"
-                  }`}
-                  className="group"
-                >
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-sm bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                    {item.poster_path ? (
-                      <Image 
-                        height={700}
-                        width={500}
-                        src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                        alt={item.title ? item.title : item.name}
-                        className="h-full w-full object-cover object-center group-hover:opacity-75"
-                      />
-                    ) : (
-                      <Image
-                        height={700}
-                        width={500}
-                        src="/ImageUnavailable.svg"
-                        alt={item.title ? item.title : item.name}
-                        className="h-full w-full object-cover object-center group-hover:opacity-75"
-                      />
-                    )}
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <h3 className="mt-4 text-lg font-medium text-gray-900">
-                      {item.title ? item.title : item.name}
-                    </h3>
+        <div className="flex items-center justify-center py-4">
+          <h2 className="text-transform: uppercase mt-4 text-3xl font-bold text-custom-c18c5d">
+            All Titles
+          </h2>
+        </div>
 
-                  </div>
-                </Link>
-                
-              ))
-            ) : (
-              <p>Loading...</p>
-            )}
 
-            
-          </div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          {Array.isArray(items) && items.length > 0 ? (
+            items.map((item: Item) => (
+              <Link
+                key={item.id}
+                href={`/media/${item.id}?media_type=${
+                  item.title ? "movie" : "tv"
+                }`}
+                className="group"
+              >
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-sm bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                  {item.poster_path ? (
+                    <Image
+                      height={700}
+                      width={500}
+                      src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                      alt={item.title ? item.title : item.name}
+                      className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    />
+                  ) : (
+                    <Image
+                      height={700}
+                      width={500}
+                      src="/ImageUnavailable.svg"
+                      alt={item.title ? item.title : item.name}
+                      className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    />
+                  )}
+                </div>
+
+                <div className="flex items-center justify-center">
+                  <h3 className="mt-4 text-lg font-medium text-gray-900">
+                    {item.title ? item.title : item.name}
+                  </h3>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div className="py-4">
+
+            <h3 className="mt-4 text-center text-2xl font-bold text-custom-c18c5d">
+                Loading...
+              </h3>
+            </div>
+          )}
         </div>
       </div>
-    
-
+    </div>
   );
 };
 
