@@ -144,27 +144,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                           </li>
                         ))}
 
-                        {/* Sign out button */}
-                        {session ? (
+      {/* Conditional rendering for sign in or sign out */}
+      {!session ? (
                           <li className="flex items-center group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                            <button onClick={() => signout()} type="button">
-                              <div className="flex items-center gap-x-2">
-                                <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
-                                Logout
-                              </div>
-                            </button>
+                            <Link href="/get-started">
+                              Log in
+                            </Link>
                           </li>
                         ) : ( 
-                            <li className="flex items-center group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                            <Link href="/get-started">
-                              <div className="flex items-center gap-x-2">
-                                <ArrowRightOnRectangleIcon className="h-6 w-6 mr-1" />
-                                Login
-                              </div>
-                            </Link>
-                            </li>)
-                        
-                        } 
+                          <li className="flex items-center group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                          <button onClick={() => signout()} type="button">
+                            <div className="flex items-center gap-x-2">
+                              <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" />
+                              Logout
+                            </div>
+                          </button>
+                        </li>
+                        )} 
                       </ul>
                     </nav>
                   </div>
@@ -202,23 +198,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </li>
               ))}
 
-              {/* Sign out button} */}
-              {session ? (
+              {/* Conditional rendering for sign in or sign out */}
+
+              {!session ? (
+                <li className="flex items-center group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                    <Link href="/get-started">
+                      Log in
+                    </Link>
+                  </li>
+              ) : (
                 <li className="flex items-center group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                   <button onClick={() => signout()} type="button">
                     {/* <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-1" /> */}
                     Logout
                   </button>
                 </li>
-              ) : ( 
-                <li className="flex items-center group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                <Link href="/get-started">
-                  <div className="flex items-center gap-x-2">
-                    Login
-                  </div>
-                </Link>
-                </li>)
-              }
+              )}
             </ul>
           </nav>
         </div>
