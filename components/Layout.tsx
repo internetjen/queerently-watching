@@ -171,7 +171,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden lg:flex lg:justify-between lg:items-center lg:overflow-x-auto">
+        <div className="hidden lg:bg-white lg:flex lg:justify-between lg:items-center lg:overflow-x-auto lg:sticky lg:top-0 lg:z-40 lg:shadow-sm">
           <div className="flex h-16 shrink-0 px-4 items-center justify-center">
             <Logo />
           </div>
@@ -218,7 +218,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </nav>
         </div>
 
-        <div className="sticky top-0 z-40 flex items-center gap-x-6  px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+        <div className="sticky top-0 z-40 flex items-center gap-x-6  px-4 py-4 bg-white shadow-sm sm:px-6 lg:hidden">
           <button
             type="button"
             className="-m-2.5 p-2.5 text-gray-900 lg:hidden"
