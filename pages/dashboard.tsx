@@ -31,7 +31,7 @@ interface Genre {
   name: string;
 }
 
-const stats = [
+const favorite = [
   {
     id: 1,
     name: "Total Subscribers",
@@ -39,23 +39,19 @@ const stats = [
     icon: UsersIcon,
     change: "122",
     changeType: "increase",
-  },
+  }
+];
+
+
+const watchlist = [
   {
-    id: 2,
-    name: "Avg. Open Rate",
-    stat: "58.16%",
-    icon: EnvelopeOpenIcon,
-    change: "5.4%",
+    id: 1,
+    name: "Total Subscribers",
+    stat: "71,897",
+    icon: UsersIcon,
+    change: "122",
     changeType: "increase",
-  },
-  {
-    id: 3,
-    name: "Avg. Click Rate",
-    stat: "24.57%",
-    icon: CursorArrowRaysIcon,
-    change: "3.2%",
-    changeType: "decrease",
-  },
+  }
 ];
 
 function classNames(...classes: string[]) {
@@ -90,12 +86,14 @@ const Dashboard = () => {
           </h2>
         </div>
 
+        {/* featured content */}
+
         <div className="bg-white shadow sm:rounded-lg">
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-base font-semibold leading-6 text-gray-900">
               Featured This Month
             </h3>
-            <div className="mt-2 text-sm text-gray-900 grid grid-cols-2 gap-4">
+            <div className="mt-2 text-sm text-gray-900 grid sm:grid-cols-2 gap-4">
               {item && (
                 <>
                   <div className="col-span-1 flex flex-col justify-center">
@@ -105,7 +103,7 @@ const Dashboard = () => {
                     <p className="mt-4 flex justify-center">{item.overview}</p>
                     <Link 
                     href={`/media/155513?media_type=tv`}
-                    className="mt-4 font-semibold text-indigo-600 hover:text-indigo-500"
+                    className="mt-4 mb-4 font-semibold text-indigo-600 hover:text-indigo-500"
                     >
                     Learn more about our GAP The Series
                     <span aria-hidden="true"> &rarr;</span>
@@ -126,13 +124,15 @@ const Dashboard = () => {
           </div>
         </div>
 
+        
+        {/* Favorites */}
         <div>
           <h3 className="text-base font-semibold leading-6 text-gray-900 mt-6">
-            Last 30 days
+            My favorites
           </h3>
 
           <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {stats.map((item) => (
+            {favorite.map((item) => (
               <div
                 key={item.id}
                 className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6"
@@ -188,7 +188,7 @@ const Dashboard = () => {
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         View all
-                        <span className="sr-only"> {item.name} stats</span>
+                        <span className="sr-only"> {item.name} favorites</span>
                       </a>
                     </div>
                   </div>
@@ -197,9 +197,31 @@ const Dashboard = () => {
             ))}
           </dl>
         </div>
+
+
+        {/* Watchlist */}
+        <div>
+          <h3 className="text-base font-semibold leading-6 text-gray-900 mt-6">
+            My Watchlist
+          </h3>
+
+          <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {watchlist.map((item) => (
+              <div
+                key={item.id}
+                className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6"
+              >
+              <p>hi</p>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+
       </>
     );
   }
+
 
   return (
     <>
