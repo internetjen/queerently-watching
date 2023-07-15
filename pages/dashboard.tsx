@@ -95,7 +95,7 @@ const Dashboard = () => {
             <h3 className="text-base font-semibold leading-6 text-gray-900">
               Featured This Month
             </h3>
-            <div className="mt-2 text-sm text-gray-900 grid grid-cols-2 gap-4">
+            <div className="mt-2 text-sm text-gray-900 grid sm:grid-cols-2 gap-4">
               {item && (
                 <>
                   <div className="col-span-1 flex flex-col justify-center">
@@ -105,7 +105,7 @@ const Dashboard = () => {
                     <p className="mt-4 flex justify-center">{item.overview}</p>
                     <Link 
                     href={`/media/155513?media_type=tv`}
-                    className="mt-4 font-semibold text-indigo-600 hover:text-indigo-500"
+                    className="mt-4 mb-4 font-semibold text-indigo-600 hover:text-indigo-500"
                     >
                     Learn more about our GAP The Series
                     <span aria-hidden="true"> &rarr;</span>
