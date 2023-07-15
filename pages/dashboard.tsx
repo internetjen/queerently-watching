@@ -102,10 +102,10 @@ const Dashboard = () => {
                     <h4 className="text-xl font-bold">
                       {item.title || item.name}
                     </h4>
-                    <p className="flex justify-center">{item.overview}</p>
+                    <p className="mt-4 flex justify-center">{item.overview}</p>
                     <Link 
                     href={`/media/155513?media_type=tv`}
-                    className="mt-3 font-semibold text-indigo-600 hover:text-indigo-500"
+                    className="mt-4 font-semibold text-indigo-600 hover:text-indigo-500"
                     >
                     Learn more about our GAP The Series
                     <span aria-hidden="true"> &rarr;</span>
